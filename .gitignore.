@@ -1,0 +1,9 @@
+
+git init
+git remote add origin git@github.com:yourusername/emopulse.git
+
+
+git add README.md Dockerfile .gitignore LICENSE
+git commit -m "chore: initial project files"
+git branch -M main
+git push -u origin main
