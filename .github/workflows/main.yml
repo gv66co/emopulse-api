@@ -1,0 +1,13 @@
+.github/workflows/deploy.yml
+gcloud iam service-accounts create emopulse-ci --display-name="EmoPulse CI"
+gcloud projects add-iam-policy-binding emopulse-project \
+--member="serviceAccount:emopulse-ci@emopulse-project.iam.gserviceaccount.com" \
+--role="roles/run.admin"
+gcloud projects add-iam-policy-binding emopulse-project \
+--member="serviceAccount:emopulse-ci@emopulse-project.iam.gserviceaccount.com" \
+--role="roles/cloudbuild.builds.editor"
+gcloud projects add-iam-policy-binding emopulse-project \
+--member="serviceAccount:emopulse-ci@emopulse-project.iam.gserviceaccount.com" \
+--role="roles/cloudsql.client"
+gcloud iam service-accounts keys create key.json \
+--iam-account=emopulse-ci@emopulse-project.iam.gserviceaccount.com
