@@ -1,13 +1,40 @@
-.github/workflows/deploy.yml
-gcloud iam service-accounts create emopulse-ci --display-name="EmoPulse CI"
+on:
+push:
+branches:
+- main
+
+jobs:
+deploy:
+runs-on: ubuntu-latest
+
+steps:
+- name: Checkout code
+uses: actions/checkout@v3
+
+- name: Set up gcloud CLI
+uses: google-github-actions/setup-gcloud@v1
+with:
+project_id: emopulse-project
+service_account_key: ${{ secrets.GCP_KEY }}
+export_default_credentials: true
+
+- name: Configure IAM (one-time setup, optional)
+run: |
+gcloud iam service-accounts create emopulse-ci --display-name="EmoPulse CI" || true
 gcloud projects add-iam-policy-binding emopulse-project \
 --member="serviceAccount:emopulse-ci@emopulse-project.iam.gserviceaccount.com" \
---role="roles/run.admin"
+--role="roles/run.admin" || true
 gcloud projects add-iam-policy-binding emopulse-project \
 --member="serviceAccount:emopulse-ci@emopulse-project.iam.gserviceaccount.com" \
---role="roles/cloudbuild.builds.editor"
+--role="roles/cloudbuild.builds.editor" || true
 gcloud projects add-iam-policy-binding emopulse-project \
 --member="serviceAccount:emopulse-ci@emopulse-project.iam.gserviceaccount.com" \
---role="roles/cloudsql.client"
-gcloud iam service-accounts keys create key.json \
---iam-account=emopulse-ci@emopulse-project.iam.gserviceaccount.com
+--role="roles/cloudsql.client" || true
+
+- name: Deploy to Cloud Run
+run: |
+gcloud run deploy emopulse-service \
+--source . \
+--region europe-west1 \
+--platform managed \
+--allow-unauthenticated
