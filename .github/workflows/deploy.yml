@@ -1,4 +1,4 @@
-# 2. Sukurk workflows katalogą
+nano .github/workflows/deploy.yml# 2. Sukurk workflows katalogą
 mkdir -p .github/workflows
 
 # 3. Sukurk deploy.yml
