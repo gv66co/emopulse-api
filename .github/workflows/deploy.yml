@@ -1,5 +1,22 @@
-nano .github/workflows/deploy.yml# 2. Sukurk workflows katalogą
+name: Hello Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"nano .github/workflows/deploy.ymlnano .github/workflows/deploy.yml# 2. Sukurk workflows katalogą
 mkdir -p .github/workflows
 
 # 3. Sukurk deploy.yml
-nano .github/workflows/deploy.yml
+nano .github/workflows/deploy.yml nano .github/workflows/deploy.yml
+
+
