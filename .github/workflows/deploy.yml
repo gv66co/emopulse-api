@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
       - name: Checkout code
@@ -32,3 +35,11 @@ jobs:
             --region europe-west1 \
             --platform managed \
             --allow-unauthenticated
+
+      - name: Smoke test Cloud Run
+        run: |
+          URL=$(gcloud run services describe emopulse-service \
+            --region europe-west1 \
+            --format='value(status.url)')
+          echo "Testing service at $URL"
+          curl -s $URL || exit 1
