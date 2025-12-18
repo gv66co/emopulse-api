@@ -1,9 +1,8 @@
-name: Deploy to Cloud Run
+name: Deploy to App Engine
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -11,35 +10,22 @@ jobs:
     permissions:
       id-token: write
       contents: read
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Authenticate to GCP via OIDC
+      - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: projects/1009590211108/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          token_format: access_token
+          workload_identity_provider: projects/1009590211108/locations/global/workloadIdentityPools/github-pool/providers/github-provider2
           service_account: emopulse-deployer@emopulse-481318.iam.gserviceaccount.com
 
-      - name: Set up gcloud CLI
-        uses: google-github-actions/setup-gcloud@v1
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
         with:
           project_id: emopulse-481318
-          export_default_credentials: true
 
-      - name: Deploy to Cloud Run
-        run: |
-          gcloud run deploy emopulse-service \
-            --source . \
-            --region europe-west1 \
-            --platform managed \
-            --allow-unauthenticated
-
-      - name: Smoke test Cloud Run
-        run: |
-          URL=$(gcloud run services describe emopulse-service \
-            --region europe-west1 \
-            --format='value(status.url)')
-          echo "Testing service at $URL"
+      - name: Deploy
+        run: gcloud app deploy --quiet
           curl -s $URL || exit 1
