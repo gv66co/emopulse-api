@@ -34,7 +34,3 @@ jobs:
             --region europe-west4 \
             --allow-unauthenticated \
             --quiet
-
-      - name: Deploy
-        run: gcloud app deploy --quiet
-          curl -s $URL || exit 1
