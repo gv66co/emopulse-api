@@ -1,4 +1,4 @@
-name: Deploy to App Engine
+name: Deploy to Cloud Run
 
 on:
   push:
@@ -10,6 +10,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,9 +27,13 @@ jobs:
         with:
           project_id: emopulse-481318
 
-      - name: Deploy
-        run: gcloud app deploy --quiet
-          curl -s $URL || exit 1
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy emopulse-api \
+            --source . \
+            --region europe-west4 \
+            --allow-unauthenticated \
+            --quiet
 
       - name: Deploy
         run: gcloud app deploy --quiet
