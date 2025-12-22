@@ -5,6 +5,11 @@ import bodyParser from "body-parser";
 const app = express();
 app.use(bodyParser.json());
 
+// Root endpoint to prevent 404 on GET /
+app.get("/", (req, res) => {
+  res.status(200).send("Emopulse API is running");
+});
+
 // Health check endpoint
 app.get("/api/health", (req, res) => {
   res.json({
