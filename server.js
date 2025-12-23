@@ -19,16 +19,8 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Proxy to PPG demo service
-app.use("/demo", createProxyMiddleware({
-  target: "http://ppg_demo:8501",
-  changeOrigin: true,
-  pathRewrite: { "^/demo": "/" },
-  onError: (err, req, res) => {
-    console.error("Demo proxy error:", err.message);
-    res.status(502).json({ error: "Demo proxy error" });
-  }
-}));
+// ❌ DEMO PROXY IŠJUNGTA, NES JI SUKELIA 502
+// Kai turėsi tikrą demo URL, įdėsim atgal.
 
 // Start server
 const PORT = process.env.PORT || 8080;
