@@ -1,28 +1,39 @@
 import express from "express";
-import { createProxyMiddleware } from "http-proxy-middleware";
-import bodyParser from "body-parser";
+import cors from "cors";
+import morgan from "morgan";
 
 const app = express();
-app.use(bodyParser.json());
 
-// Root endpoint to prevent 404 on GET /
+// --- Middleware ---
+app.use(express.json());          // Built-in JSON parser
+app.use(cors());                  // Allow frontend access
+app.use(morgan("tiny"));          // Lightweight request logging
+
+// --- Root endpoint ---
 app.get("/", (req, res) => {
   res.status(200).send("Emopulse API is running");
 });
 
-// Health check endpoint
+// --- Health check ---
 app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
     uptime: process.uptime(),
-    version: "0.1.0"
+    version: "0.1.0",
+    timestamp: new Date().toISOString()
   });
 });
 
-// NOTE: demo proxy disabled until demo service has a reachable URL
-// When you have a real demo URL, re-enable like:
-// app.use("/demo", createProxyMiddleware({ target: "https://ppg-demo.example.com", changeOrigin: true, pathRewrite: { "^/demo": "/" } }));
+// --- Error handler (production-safe) ---
+app.use((err, req, res, next) => {
+  console.error("API Error:", err);
+  res.status(500).json({
+    error: "Internal server error",
+    message: err.message
+  });
+});
 
+// --- Start server ---
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Emopulse API running on port ${PORT}`);
