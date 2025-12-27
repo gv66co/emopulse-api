@@ -5,9 +5,9 @@ import morgan from "morgan";
 const app = express();
 
 // --- Middleware ---
-app.use(express.json());          // Built-in JSON parser
-app.use(cors());                  // Allow frontend access
-app.use(morgan("tiny"));          // Lightweight request logging
+app.use(express.json());
+app.use(cors());
+app.use(morgan("tiny"));
 
 // --- Root endpoint ---
 app.get("/", (req, res) => {
@@ -24,7 +24,7 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// --- Error handler (production-safe) ---
+// --- Error handler ---
 app.use((err, req, res, next) => {
   console.error("API Error:", err);
   res.status(500).json({
@@ -33,5 +33,5 @@ app.use((err, req, res, next) => {
   });
 });
 
-// --- Export for Cloud Functions ---
+// --- Export for Cloud Functions 2nd gen ---
 export const rotateHandler = app;
