@@ -4,17 +4,14 @@ import morgan from "morgan";
 
 const app = express();
 
-// --- Middleware ---
 app.use(express.json());
 app.use(cors());
 app.use(morgan("tiny"));
 
-// --- Root endpoint ---
 app.get("/", (req, res) => {
   res.status(200).send("Emopulse API is running");
 });
 
-// --- Health check ---
 app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
@@ -24,7 +21,6 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// --- Error handler ---
 app.use((err, req, res, next) => {
   console.error("API Error:", err);
   res.status(500).json({
@@ -33,5 +29,5 @@ app.use((err, req, res, next) => {
   });
 });
 
-// --- Export for Cloud Functions 2nd gen ---
+// Export for Cloud Functions 2nd gen
 export const rotateHandler = app;
