@@ -33,8 +33,5 @@ app.use((err, req, res, next) => {
   });
 });
 
-// --- Start server ---
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Emopulse API running on port ${PORT}`);
-});
+// --- Export for Cloud Functions ---
+export const rotateHandler = app;
