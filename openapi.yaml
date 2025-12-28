@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Emopulse API
+  version: "0.1.0"
+  description: Simple API that rotates text
+servers:
+  - url: /
+paths:
+  /:
+    post:
+      summary: Rotate text
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  example: Natashka
+      responses:
+        '200':
+          description: Rotated text
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rotated:
+                    type: string
+                    example: akhsataN
+        '400':
+          description: Missing text
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Missing 'text'
+  /api/health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Service health
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  uptime:
+                    type: number
+                  version:
+                    type: string
+                  timestamp:
+                    type: string
