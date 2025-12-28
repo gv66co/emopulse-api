@@ -20,11 +20,9 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Root POST so Cloud Functions 2nd gen maps correctly
 app.post("/", (req, res) => {
   const { text } = req.body || {};
   if (!text) return res.status(400).json({ error: "Missing 'text'" });
-
   const rotated = text.split("").reverse().join("");
   res.json({ rotated });
 });
@@ -37,5 +35,12 @@ app.use((err, req, res, next) => {
   });
 });
 
-// wrapper eksportas, kad Functions Framework aiškiai gautų req/res
-exports.rotateHandler = (req, res) => app(req, res);
+// Start server when run directly (Cloud Run needs this)
+if (require.main === module) {
+  const port = process.env.PORT || 8080;
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+  });
+}
+
+module.exports = app;
