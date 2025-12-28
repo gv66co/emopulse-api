@@ -121,3 +121,19 @@ app.post("/api/classify", (req, res) => {
 
   res.json({ classification });
 });
+// --- Emopulse API: /api/summary ---
+app.post("/api/summary", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder summary logic — AI will replace this later
+  const words = text.split(/\s+/);
+  const summary = words.length > 20
+    ? words.slice(0, 20).join(" ") + "..."
+    : text;
+
+  res.json({ summary });
+});
