@@ -44,3 +44,56 @@ if (require.main === module) {
 }
 
 module.exports = app;
+// --- Emopulse API: /api/analyze ---
+app.post("/api/analyze", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  const analysis = {
+    length: text.length,
+    wordCount: text.split(/\s+/).length,
+    sentiment: "neutral",
+    keywords: ["placeholder", "analysis"],
+  };
+
+  res.json({ analysis });
+});
+
+// --- Emopulse API: /api/emotion ---
+app.post("/api/emotion", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  const emotions = {
+    joy: 0.52,
+    sadness: 0.18,
+    anger: 0.07,
+    fear: 0.05,
+    surprise: 0.18,
+  };
+
+  res.json({ emotions });
+});
+
+// --- Emopulse API: /api/insights ---
+app.post("/api/insights", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  const insights = {
+    summary: "Placeholder summary for now.",
+    recommendation: "Placeholder recommendation.",
+    emotionalInterpretation: "Neutral emotional tone detected.",
+  };
+
+  res.json({ insights });
+});
