@@ -21,6 +21,7 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+// Add the missing POST /rotate route
 app.post("/rotate", (req, res) => {
   const { text } = req.body;
   if (!text) return res.status(400).json({ error: "Missing 'text'" });
@@ -37,4 +38,5 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Export for Cloud Functions 2nd gen
 exports.rotateHandler = app;
