@@ -97,3 +97,27 @@ app.post("/api/insights", (req, res) => {
 
   res.json({ insights });
 });
+// --- Emopulse API: /api/classify ---
+app.post("/api/classify", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will be added later
+  const classification = {
+    tone: "neutral",
+    category: "general",
+    intensity: 0.5,
+    emotions: {
+      joy: 0.4,
+      sadness: 0.2,
+      anger: 0.1,
+      fear: 0.05,
+      surprise: 0.25
+    }
+  };
+
+  res.json({ classification });
+});
