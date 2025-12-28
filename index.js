@@ -36,5 +36,13 @@ app.use((err, req, res, next) => {
   });
 });
 
-exports.rotateHandler = (req, res) => app(req, res);
+// Start server when run directly (Cloud Run needs this)
+if (require.main === module) {
+  const port = process.env.PORT || 8080;
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+  });
+}
+
+module.exports = app;
 JS
