@@ -21,7 +21,6 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Example POST route (add your logic here)
 app.post("/rotate", (req, res) => {
   const { text } = req.body;
   if (!text) return res.status(400).json({ error: "Missing 'text'" });
