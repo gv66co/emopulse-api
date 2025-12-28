@@ -1,7 +1,6 @@
-cat > server.js <<'JS'
-import express from "express";
-import cors from "cors";
-import morgan from "morgan";
+const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
 
 const app = express();
 
@@ -22,10 +21,21 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-app.use((err, req, res, next) => {
-  console.error("API Error:", err);
-  res.status(500).json({ error: "Internal server error", message: err?.message || "unknown" });
+// Example POST route (add your logic here)
+app.post("/rotate", (req, res) => {
+  const { text } = req.body;
+  if (!text) return res.status(400).json({ error: "Missing 'text'" });
+
+  const rotated = text.split("").reverse().join("");
+  res.json({ rotated });
 });
 
-export const rotateHandler = app;
-JS
+app.use((err, req, res, next) => {
+  console.error("API Error:", err);
+  res.status(500).json({
+    error: "Internal server error",
+    message: err?.message || "unknown"
+  });
+});
+
+exports.rotateHandler = app;
