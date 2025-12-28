@@ -10,3 +10,8 @@
     "morgan": "^1.10.0"
   }
 }
+gcloud functions deploy rotateHandler \
+  --region=europe-west4 \
+  --runtime=nodejs20 \
+  --trigger-http \
+  --allow-unauthenticated
