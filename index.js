@@ -863,3 +863,563 @@ app.post("/api/grounding", (req, res) => {
 
   res.json({ grounding });
 });
+
+// --- Emopulse API: /api/attunement ---
+app.post("/api/attunement", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const attunement = {
+    level: Math.random().toFixed(2),
+    direction: Math.random() > 0.5 ? "aligning" : "misaligning",
+    matchIndex: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "behavioral"][Math.floor(Math.random() * 3)]
+  };
+
+  res.json({ attunement });
+});
+
+// --- Emopulse API: /api/identity ---
+app.post("/api/identity", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const identity = {
+    type: ["stable", "fluid", "emerging", "fragmented"][Math.floor(Math.random() * 4)],
+    stability: Math.random().toFixed(2),
+    direction: Math.random() > 0.5 ? "integrating" : "shifting",
+    maturity: Math.random().toFixed(2),
+    consistency: Math.random().toFixed(2)
+  };
+
+  res.json({ identity });
+});
+
+// --- Emopulse API: /api/agency ---
+app.post("/api/agency", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const agency = {
+    level: Math.random().toFixed(2),
+    senseOfControl: Math.random().toFixed(2),
+    directionStrength: Math.random().toFixed(2),
+    willStability: Math.random().toFixed(2),
+    readiness: Math.random() > 0.5 ? "engaged" : "hesitant"
+  };
+
+  res.json({ agency });
+});
+
+// --- Emopulse API: /api/trajectory ---
+app.post("/api/trajectory", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const trajectory = {
+    direction: Math.random() > 0.5 ? "upward" : "downward",
+    curve: ["linear", "exponential", "oscillating"][Math.floor(Math.random() * 3)],
+    changeRate: Math.random().toFixed(2),
+    stabilityForecast: Math.random() > 0.5 ? "stable" : "volatile",
+    type: ["growth", "decline", "transition"][Math.floor(Math.random() * 3)]
+  };
+
+  res.json({ trajectory });
+});
+
+// --- Emopulse API: /api/echo ---
+app.post("/api/echo", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const echo = {
+    strength: Math.random().toFixed(2),
+    direction: Math.random() > 0.5 ? "inward" : "outward",
+    reflectionType: ["emotional", "cognitive", "mixed"][Math.floor(Math.random() * 3)],
+    rebound: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ echo });
+});
+
+// --- Emopulse API: /api/inner-voice ---
+app.post("/api/inner-voice", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const innerVoice = {
+    tone: ["gentle", "neutral", "harsh"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "supportive" : "critical",
+    selfCriticism: Math.random().toFixed(2),
+    selfSupport: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ innerVoice });
+});
+
+// --- Emopulse API: /api/meta ---
+app.post("/api/meta", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const meta = {
+    clarity: Math.random().toFixed(2),
+    selfMonitoring: Math.random().toFixed(2),
+    separationSkill: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2),
+    direction: Math.random() > 0.5 ? "expanding" : "contracting"
+  };
+
+  res.json({ meta });
+});
+
+// --- Emopulse API: /api/archetype ---
+app.post("/api/archetype", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const archetype = {
+    primary: ["warrior", "creator", "caregiver", "wanderer", "visionary", "shadow"][Math.floor(Math.random() * 6)],
+    shadow: ["innocent", "saboteur", "critic", "rebel"][Math.floor(Math.random() * 4)],
+    direction: Math.random() > 0.5 ? "ascending" : "descending",
+    tension: Math.random().toFixed(2),
+    dynamic: ["stable", "shifting", "emerging"][Math.floor(Math.random() * 3)]
+  };
+
+  res.json({ archetype });
+});
+
+// --- Emopulse API: /api/pulse ---
+app.post("/api/pulse", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const pulse = {
+    rhythm: ["steady", "irregular", "surging"][Math.floor(Math.random() * 3)],
+    amplitude: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2),
+    direction: Math.random() > 0.5 ? "rising" : "falling",
+    intensity: Math.random().toFixed(2)
+  };
+
+  res.json({ pulse });
+});
+
+// --- Emopulse API: /api/field ---
+app.post("/api/field", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const field = {
+    intensity: Math.random().toFixed(2),
+    direction: ["expanding", "contracting", "oscillating"][Math.floor(Math.random() * 3)],
+    structure: ["coherent", "fragmented", "layered"][Math.floor(Math.random() * 3)],
+    tension: Math.random().toFixed(2),
+    dynamic: ["stable", "shifting", "volatile"][Math.floor(Math.random() * 3)]
+  };
+
+  res.json({ field });
+});
+
+// --- Emopulse API: /api/entropy ---
+app.post("/api/entropy", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const entropy = {
+    level: Math.random().toFixed(2),
+    balance: ["order", "chaos", "mixed"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "increasing" : "decreasing",
+    dispersion: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ entropy });
+});
+
+// --- Emopulse API: /api/phase ---
+app.post("/api/phase", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const phase = {
+    type: ["activation", "processing", "integration", "release"][Math.floor(Math.random() * 4)],
+    maturity: Math.random().toFixed(2),
+    direction: Math.random() > 0.5 ? "advancing" : "regressing",
+    intensity: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ phase });
+});
+
+// --- Emopulse API: /api/charge ---
+app.post("/api/charge", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const charge = {
+    level: Math.random().toFixed(2),
+    type: ["positive", "negative", "neutral"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "charging" : "discharging",
+    density: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ charge });
+});
+
+// --- Emopulse API: /api/charge ---
+app.post("/api/charge", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const charge = {
+    level: Math.random().toFixed(2),
+    type: ["positive", "negative", "neutral"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "charging" : "discharging",
+    density: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ charge });
+});
+
+// --- Emopulse API: /api/vibration ---
+app.post("/api/vibration", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const vibration = {
+    frequency: Math.random().toFixed(2),
+    amplitude: Math.random().toFixed(2),
+    quality: ["smooth", "rough", "pulsing"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "ascending" : "descending",
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ vibration });
+});
+
+// --- Emopulse API: /api/flow ---
+app.post("/api/flow", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const flow = {
+    level: Math.random().toFixed(2),
+    direction: ["forward", "backward", "cyclical"][Math.floor(Math.random() * 3)],
+    resistance: Math.random().toFixed(2),
+    smoothness: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ flow });
+});
+
+// --- Emopulse API: /api/coherence ---
+app.post("/api/coherence", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const coherence = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "integrated"][Math.floor(Math.random() * 3)],
+    alignmentIndex: Math.random().toFixed(2),
+    direction: Math.random() > 0.5 ? "strengthening" : "weakening",
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ coherence });
+});
+
+// --- Emopulse API: /api/resonance ---
+app.post("/api/resonance", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const resonance = {
+    strength: Math.random().toFixed(2),
+    frequency: Math.random().toFixed(2),
+    direction: ["inward", "outward", "cyclical"][Math.floor(Math.random() * 3)],
+    quality: ["harmonic", "dissonant", "neutral"][Math.floor(Math.random() * 3)],
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ resonance });
+});
+
+// --- Emopulse API: /api/threshold ---
+app.post("/api/threshold", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const threshold = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "behavioral"][Math.floor(Math.random() * 3)],
+    transitionRisk: Math.random().toFixed(2),
+    sensitivity: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ threshold });
+});
+
+// --- Emopulse API: /api/activation ---
+app.post("/api/activation", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const activation = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "somatic"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "increasing" : "decreasing",
+    speed: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ activation });
+});
+
+// --- Emopulse API: /api/pressure ---
+app.post("/api/pressure", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const pressure = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "situational"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "increasing" : "decreasing",
+    accumulationSpeed: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ pressure });
+});
+
+// --- Emopulse API: /api/load ---
+app.post("/api/load", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const load = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "situational"][Math.floor(Math.random() * 3)],
+    distribution: ["balanced", "skewed-high", "skewed-low"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "increasing" : "decreasing",
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ load });
+});
+
+// --- Emopulse API: /api/volatility ---
+app.post("/api/volatility", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const volatility = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "mixed"][Math.floor(Math.random() * 3)],
+    amplitude: Math.random().toFixed(2),
+    frequency: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ volatility });
+});
+
+// --- Emopulse API: /api/fragmentation ---
+app.post("/api/fragmentation", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const fragmentation = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "identity"][Math.floor(Math.random() * 3)],
+    fragments: Math.floor(Math.random() * 5) + 1, // 1–5 fragmentai
+    direction: Math.random() > 0.5 ? "increasing" : "decreasing",
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ fragmentation });
+});
+
+// --- Emopulse API: /api/grounding ---
+app.post("/api/grounding", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const grounding = {
+    level: Math.random().toFixed(2),
+    type: ["somatic", "emotional", "cognitive"][Math.floor(Math.random() * 3)],
+    bodyMindConnection: Math.random().toFixed(2),
+    orientation: ["present", "dissociated", "drifting"][Math.floor(Math.random() * 3)],
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ grounding });
+});
+
+// --- Emopulse API: /api/clarity ---
+app.post("/api/clarity", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const clarity = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "integrated"][Math.floor(Math.random() * 3)],
+    sharpness: Math.random().toFixed(2),
+    direction: Math.random() > 0.5 ? "increasing" : "decreasing",
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ clarity });
+});
+
+// --- Emopulse API: /api/intuition ---
+app.post("/api/intuition", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const intuition = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "somatic", "cognitive"][Math.floor(Math.random() * 3)],
+    signalClarity: Math.random().toFixed(2),
+    direction: ["forward", "inward", "outward"][Math.floor(Math.random() * 3)],
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ intuition });
+});
+
+// --- Emopulse API: /api/instinct ---
+app.post("/api/instinct", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const instinct = {
+    level: Math.random().toFixed(2),
+    type: ["fight", "flight", "freeze", "fawn"][Math.floor(Math.random() * 4)],
+    direction: ["toward", "away", "neutral"][Math.floor(Math.random() * 3)],
+    intensity: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ instinct });
+});
