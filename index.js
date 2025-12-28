@@ -1423,3 +1423,104 @@ app.post("/api/instinct", (req, res) => {
 
   res.json({ instinct });
 });
+
+// --- Emopulse API: /api/drive ---
+app.post("/api/drive", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const drive = {
+    level: Math.random().toFixed(2),
+    type: ["intrinsic", "extrinsic", "mixed"][Math.floor(Math.random() * 3)],
+    direction: ["forward", "upward", "inward"][Math.floor(Math.random() * 3)],
+    intensity: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ drive });
+});
+
+// --- Emopulse API: /api/impulse ---
+app.post("/api/impulse", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const impulse = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "behavioral", "somatic"][Math.floor(Math.random() * 3)],
+    direction: ["toward", "away", "neutral"][Math.floor(Math.random() * 3)],
+    speed: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ impulse });
+});
+
+// --- Emopulse API: /api/urge ---
+app.post("/api/urge", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const urge = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "instinctive", "habitual", "motivational"][Math.floor(Math.random() * 4)],
+    direction: ["toward", "away", "neutral"][Math.floor(Math.random() * 3)],
+    intensity: Math.random().toFixed(2),
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ urge });
+});
+
+// --- Emopulse API: /api/tension ---
+app.post("/api/tension", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const tension = {
+    level: Math.random().toFixed(2),
+    type: ["emotional", "cognitive", "somatic"][Math.floor(Math.random() * 3)],
+    source: ["internal", "external", "mixed"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "increasing" : "decreasing",
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ tension });
+});
+
+// --- Emopulse API: /api/stress ---
+app.post("/api/stress", (req, res) => {
+  const { text } = req.body;
+
+  if (!text) {
+    return res.status(400).json({ error: "Missing 'text' field" });
+  }
+
+  // Placeholder logic — AI will replace this later
+  const stress = {
+    level: Math.random().toFixed(2),
+    type: ["acute", "chronic", "ambient"][Math.floor(Math.random() * 3)],
+    source: ["internal", "external", "mixed"][Math.floor(Math.random() * 3)],
+    direction: Math.random() > 0.5 ? "increasing" : "decreasing",
+    stability: Math.random().toFixed(2)
+  };
+
+  res.json({ stress });
+});
+
