@@ -1,4 +1,3 @@
-cat > index.js <<'JS'
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -45,4 +44,3 @@ if (require.main === module) {
 }
 
 module.exports = app;
-JS
