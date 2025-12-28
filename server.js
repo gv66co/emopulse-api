@@ -1,3 +1,4 @@
+cat > server.js <<'JS'
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
@@ -23,11 +24,8 @@ app.get("/api/health", (req, res) => {
 
 app.use((err, req, res, next) => {
   console.error("API Error:", err);
-  res.status(500).json({
-    error: "Internal server error",
-    message: err.message
-  });
+  res.status(500).json({ error: "Internal server error", message: err?.message || "unknown" });
 });
 
-// Export for Cloud Functions 2nd gen
 export const rotateHandler = app;
+JS
