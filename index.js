@@ -1524,5 +1524,3 @@ app.post("/api/stress", (req, res) => {
   res.json({ stress });
 });
 
-<script src="script.js"></script>
-
